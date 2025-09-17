@@ -3,127 +3,148 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vuu Khanh Duy — DevOps Engineer (Inspirelab)</title>
+  <title>Vuu Khanh Duy — DevOps Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --accent: #0ea5e9;
-      --text: #0f172a;
-      --muted: #475569;
       --bg: #ffffff;
-      --chip: #e2e8f0;
+      --text: #111111;
+      --muted: #444444;
+      --accent: #000000;
+      --border: #dddddd;
+      --chip-bg: #f3f3f3;
     }
+
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 980px; margin: 24px auto; padding: 0 24px; }
-    header { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; border-bottom: 2px solid #e5e7eb; padding-bottom: 16px; }
-    h1 { font-size: 32px; margin: 0; letter-spacing: .2px; }
-    .role { color: var(--accent); font-weight: 700; }
-    .contact { display: grid; gap: 6px; justify-items: end; text-align: right; font-size: 14px; color: var(--muted); }
-    .contact a { color: var(--muted); }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Arial, Helvetica, sans-serif; font-size: 15px; }
+    a { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--border); }
+    a:hover { color: var(--accent); }
 
-    .summary { margin: 18px 0 0; color: var(--muted); line-height: 1.6; }
+    .container { max-width: 900px; margin: 32px auto; padding: 0 24px; }
 
-    section { margin-top: 28px; }
-    h2 { font-size: 18px; margin: 0 0 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+    .resume { border: 1px solid var(--border); border-radius: 8px; background: var(--bg); }
 
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    header { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; padding: 28px; border-bottom: 1px solid var(--border); }
+    h1 { font-size: 32px; margin: 0; }
+    .role { margin-top: 4px; font-weight: bold; color: var(--accent); }
+    .summary { margin-top: 10px; color: var(--muted); line-height: 1.6; font-size: 14px; }
 
-    .item { padding: 16px; border: 1px solid #e5e7eb; border-radius: 14px; }
-    .item h3 { margin: 0 0 4px; font-size: 17px; }
-    .meta { display:flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .contact { justify-self: end; text-align: right; display: grid; gap: 6px; color: var(--muted); font-size: 13px; }
+    .contact a { color: var(--muted); border: none; }
+    .contact a:hover { color: var(--text); }
+    .contact i { margin-right: 6px; color: var(--accent); }
 
-    ul { margin: 8px 0 0 18px; }
-    li { margin: 6px 0; }
+    section { padding: 22px 28px; }
 
-    .chips { display:flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .chip { padding: 6px 10px; border-radius: 999px; background: var(--chip); font-size: 13px; }
+    h2 { font-size: 13px; font-weight: bold; letter-spacing: .12em; color: var(--muted); margin: 0 0 14px; text-transform: uppercase; border-left: 3px solid var(--accent); padding-left: 8px; }
 
-    .tight p { margin: 8px 0; }
+    .item { padding: 16px; border: 1px solid var(--border); border-radius: 8px; background: #fff; margin-bottom: 16px; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
 
-    footer { margin-top: 28px; padding-top: 16px; border-top: 1px dashed #e5e7eb; font-size: 12px; color: var(--muted); }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin: 5px 0; line-height: 1.5; }
 
-    /* Print */
+    .chips { display:flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .chip { padding: 4px 8px; border-radius: 999px; background: var(--chip-bg); border: 1px solid var(--border); font-size: 12px; }
+
+    footer { padding: 16px 28px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+
     @media print {
-      .container { max-width: 100%; margin: 0; padding: 0 12mm; }
-      header { grid-template-columns: 2fr 1fr; border-bottom: 1px solid #ddd; }
-      a { color: black; text-decoration: none; }
-      .item { border-color: #ddd; }
+      .resume { border: none; }
+      header { border-bottom: 1px solid var(--border); }
+      a { color: black; border: none; }
     }
   </style>
 </head>
 <body>
   <main class="container">
-    <header>
-      <div>
-        <h1>Vuu Khanh Duy</h1>
-        <div class="role">DevOps Engineer</div>
-        <p class="summary">Curious, hands-on DevOps engineer focused on modernizing infrastructure with Infrastructure as Code, automating CI/CD, hardening operations, and improving end‑to‑end observability to ship faster with higher reliability.</p>
-      </div>
-      <div class="contact">
-        <div>📍 Binh Chanh, Ho Chi Minh City</div>
-        <div>📧 <a href="mailto:duyvk99@gmail.com">duyvk99@gmail.com</a></div>
-        <div>📞 <a href="tel:+84344734350">+84 344 734 350</a></div>
-        <div>🐙 <a href="https://github.com/duyvk99" target="_blank" rel="noreferrer">github.com/duyvk99</a></div>
-        <div>💼 <a href="https://linkedin.com/in/duyvk99" target="_blank" rel="noreferrer">linkedin.com/in/duyvk99</a></div>
-      </div>
-    </header>
-
-    <section>
-      <h2>Experience</h2>
-
-      <article class="item">
-        <h3>DevOps Engineer — Inspire Lab Technology</h3>
-        <div class="meta">11/2021 — Present · Ho Chi Minh City</div>
-        <ul>
-          <li>Greenfield setup and end‑to‑end environment management using <strong>Terraform</strong> (VPC, EKS, RDS, SSM, ElastiCache, etc.).</li>
-          <li>Designed and operated <strong>GitLab CI/CD</strong> pipelines; enforced <strong>Semantic Versioning</strong> to avoid dependency hell.</li>
-          <li>Set up and maintained <strong>GitLab on‑premises</strong>: backup/restore, runners, scaling, security & access control.</li>
-          <li>Partnered with product teams to <strong>release</strong> features to <strong>production</strong>; orchestrated safe rollouts/rollbacks and reduced downtime.</li>
-          <li>Implemented <strong>observability</strong> (centralized logging, tracing, metrics) with actionable dashboards and alerts; supported on‑call debugging.</li>
-          <li>Provisioned and operated <strong>Amazon EKS</strong> for multiple environments; tuned autoscaling, node groups, and ingress/ALB.</li>
-          <li>Deployed and ran <strong>Redis, ActiveMQ, Kafka, Zookeeper</strong> and <strong>Java microservices</strong>.</li>
-          <li>Administered <strong>Amazon RDS</strong>, enabling <strong>sharding/spread</strong> and <strong>migrations</strong> via <strong>AWS DMS</strong>.</li>
-          <li>Integrated <strong>SAST</strong> (e.g., SonarQube) into CI/CD to raise code quality and security standards.</li>
-          <li>Improved application performance using tracing and profiling; reduced response times and infrastructure costs.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">AWS (EKS, RDS, ElastiCache, ALB)</span>
-          <span class="chip">Terraform</span>
-          <span class="chip">GitLab CI/CD</span>
-          <span class="chip">Docker / Kubernetes</span>
-          <span class="chip">ELK / OpenTelemetry</span>
-          <span class="chip">SonarQube (SAST)</span>
-          <span class="chip">Kafka / ActiveMQ / Redis</span>
+    <div class="resume">
+      <header>
+        <div>
+          <h1>Vuu Khanh Duy</h1>
+          <div class="role">DevOps Engineer</div>
+          <p class="summary">DevOps engineer who enjoys learning and problem solving. Skilled in building infrastructure with Terraform, setting up CI/CD, running production systems, and improving system monitoring for stability and speed.</p>
         </div>
-      </article>
-
-      <article class="item">
-        <h3>DevOps Consultant — Freelancer (ShareRight)</h3>
-        <div class="meta">05/2023 — 12/2023 · Remote</div>
-        <ul>
-          <li>Designed secure, scalable AWS architecture; optimized costs across dev/prod.</li>
-          <li>Built and maintained IaC with <strong>Terraform</strong>; implemented <strong>CI/CD</strong> (AWS CodePipeline / GitLab CI).</li>
-          <li>Established monitoring and alerting; improved incident response and minimized downtime.</li>
-          <li>Containerized apps with Docker Compose; delivered demo environments and runbooks.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">ECS Fargate</span>
-          <span class="chip">Terraform</span>
-          <span class="chip">AWS CodePipeline</span>
-          <span class="chip">Monitoring</span>
+        <div class="contact">
+          <div><i class="fa-solid fa-location-dot"></i> Binh Chanh, Ho Chi Minh City</div>
+          <div><i class="fa-solid fa-envelope"></i> <a href="mailto:duyvk99@gmail.com">duyvk99@gmail.com</a></div>
+          <div><i class="fa-solid fa-phone"></i> <a href="tel:+84344734350">+84 344 734 350</a></div>
+          <div><i class="fa-brands fa-github"></i> <a href="https://github.com/duyvk99" target="_blank" rel="noreferrer">github.com/duyvk99</a></div>
+          <div><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/duyvk99" target="_blank" rel="noreferrer">linkedin.com/in/duyvk99</a></div>
         </div>
-      </article>
+      </header>
 
-      <div class="grid-2">
+      <section>
+        <h2>Highlights</h2>
+        <div class="item">
+          <ul>
+            <li>Automated releases with GitLab CI/CD, added version rules and code checks (SAST).</li>
+            <li>Used observability stack (ELK/OTel/ECK) to manage systems and troubleshoot production incidents effectively.</li>
+            <li>Always ready for on-call duties to ensure uptime and quick incident response.</li>
+            <li>Built reusable infrastructure with Terraform, making changes safer and easier to track.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+
+        <article class="item">
+          <h3>DevOps Engineer — Inspire Lab Technology</h3>
+          <div class="meta">11/2021 — Present · Ho Chi Minh City</div>
+          <ul>
+            <li>Built and managed all environments using <strong>Terraform</strong> (VPC, EKS, RDS, SSM, ElastiCache).</li>
+            <li>Created and maintained <strong>GitLab CI/CD</strong> pipelines; used <strong>Semantic Versioning</strong> to avoid version issues.</li>
+            <li>Maintained <strong>production environment</strong> to ensure system stability and uptime.</li>
+            <li>Helped release new features to <strong>production</strong>; planned safe rollouts and rollbacks with less downtime.</li>
+            <li>Built observability stack with <strong>logs, tracing, and monitoring</strong> using <strong>ECK</strong>; created dashboards and alerts, and used insights to check resource usage and select suitable instance types for cost and performance optimization.</li>
+            <li>Managed <strong>Kubernetes clusters</strong> and applications inside them, including backend services and <strong>Java microservices</strong>.</li>
+            <li>Set up and managed third‑party applications (<strong>Redis, ActiveMQ, Kafka cluster, Zookeeper</strong>) to fit project needs and support backend <strong>Java microservices</strong>.</li>
+            <li>Configured <strong>IAM roles with IRSA flow</strong>, using OIDC trust from the EKS cluster to allow Java microservices secure access to <strong>AWS SSM</strong> with the right permissions.</li>
+            <li>Managed <strong>domain and WAF</strong> using <strong>Cloudflare</strong> to improve security and reliability.</li>
+            <li>Handled <strong>Amazon RDS</strong>; supported sharding and migration using <strong>AWS DMS</strong>.</li>
+            <li>Used <strong>SAST</strong> (SonarQube) in pipelines to improve code quality and security.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">AWS (EKS, RDS, ElastiCache, ALB, SSM, IAM, IRSA)</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">GitLab CI/CD</span>
+            <span class="chip">Docker / Kubernetes</span>
+            <span class="chip">ECK / Observability</span>
+            <span class="chip">Kafka / ActiveMQ / Redis</span>
+            <span class="chip">Cloudflare (Domain & WAF)</span>
+            <span class="chip">SonarQube</span>
+          </div>
+        </article>
+
+        <article class="item">
+          <h3>DevOps Consultant — Freelancer (ShareRight)</h3>
+          <div class="meta">05/2023 — 12/2023 · Remote</div>
+          <ul>
+            <li>Designed AWS infrastructure based on business requirements to ensure scalability and minimize costs.</li>
+            <li>Managed infrastructure using <strong>Terraform</strong>.</li>
+            <li>Built <strong>CI/CD pipelines</strong> for Java applications with Git, CodeBuild, and CodePipeline; stored artifacts in <strong>CodeArtifact</strong> and deployed on <strong>AWS ECS Fargate</strong>.</li>
+            <li>Implemented <strong>observability</strong> by integrating Datadog Agent to collect application logs and metrics for monitoring and troubleshooting.</li>
+            <li>Standardized infrastructure deployment on <strong>AWS ECS Fargate</strong> to ensure scalability, cost optimization, and easier system maintenance.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">AWS ECS Fargate</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">Git / CodeBuild / CodePipeline</span>
+            <span class="chip">CodeArtifact</span>
+            <span class="chip">Datadog</span>
+            <span class="chip">CI/CD</span>
+          </div>
+        </article>
+
         <article class="item">
           <h3>System Administrator Associate — ETRUSTCLOUD</h3>
           <div class="meta">03/2021 — 10/2021</div>
           <ul>
-            <li>Deployed dev environments, monitored infrastructure, and automated batch/scripted releases.</li>
-            <li>Configured Mail/Drive/Docs; authored documentation and trained users on processes.</li>
-            <li>Stood up a kubeadm demo cluster; built GitLab CI pipelines for PHP apps.</li>
+            <li>Set up development environments and supported releases using <strong>Bash</strong> and <strong>Batch scripts</strong> depending on requirements.</li>
+            <li>Configured <strong>mail server</strong> and <strong>drive services</strong> for project requirements.</li>
+            <li>Deployed a demo <strong>Kubernetes cluster</strong> with kubeadm for project deployments; built GitLab CI pipelines for PHP applications.</li>
           </ul>
         </article>
 
@@ -131,62 +152,57 @@
           <h3>System Administrator Associate — KDATA</h3>
           <div class="meta">09/2020 — 02/2021</div>
           <ul>
-            <li>Researched Web/Mail servers, firewalls, monitoring, and hosting control panels.</li>
-            <li>Deployed cPanel/DirectAdmin, automated installation scripts, Zimbra, Zabbix, pfSense.</li>
-            <li>Supported customers in diagnosing and resolving infrastructure issues.</li>
+            <li>Studied web and mail servers, firewalls, monitoring tools, and hosting panels.</li>
+            <li>Built <strong>Bash scripts</strong> to deploy applications using <strong>LAMP/LEMP stacks</strong> for users.</li>
+            <li>Deployed <strong>cPanel/DirectAdmin</strong>, built auto‑install scripts, and set up Zimbra, Zabbix, pfSense.</li>
+            <li>Helped customers troubleshoot and fix system issues.</li>
           </ul>
         </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="grid-2">
-      <div>
-        <h2>Skills</h2>
-        <div class="item">
-          <div class="chips">
-            <span class="chip">GitLab CI</span>
-            <span class="chip">Jenkins</span>
-            <span class="chip">AWS CodePipeline</span>
-            <span class="chip">Bash</span>
-            <span class="chip">Ansible</span>
-            <span class="chip">Terraform</span>
-            <span class="chip">Datadog</span>
-            <span class="chip">Elastic Stack</span>
-            <span class="chip">Kubernetes</span>
-            <span class="chip">Docker</span>
-            <span class="chip">Amazon Web Services</span>
+      <section class="grid-2">
+        <div>
+          <h2>Skills</h2>
+          <div class="item">
+            <div class="chips">
+              <span class="chip">AWS</span>
+              <span class="chip">Terraform</span>
+              <span class="chip">Kubernetes</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Helm</span>
+              <span class="chip">GitLab CI</span>
+              <span class="chip">Jenkins</span>
+              <span class="chip">AWS CodePipeline</span>
+              <span class="chip">Python</span>
+              <span class="chip">Bash / Linux</span>
+              <span class="chip">Ansible</span>
+              <span class="chip">ELK / ECK</span>
+              <span class="chip">Datadog</span>
+              <span class="chip">Cloudflare</span>
+              <span class="chip">SonarQube</span>
+            </div>
+          </div>
+
+          <h2>Certifications</h2>
+          <div class="item">
+            <p><strong>AWS Certified Solutions Architect – Associate</strong> (10/2023 — 10/2026)</p>
+            <p><strong>TOEIC 775</strong> (11/2021 — 11/2023)</p>
           </div>
         </div>
-
-        <h2>Certifications & Awards</h2>
-        <div class="item tight">
-          <p><strong>AWS Certified Solutions Architect – Associate</strong> (10/2023 — 10/2026)</p>
-          <p><strong>TOEIC 775</strong> (11/2021 — 11/2023)</p>
-          <p><strong>CCNA</strong> — Certified Network Security Center (06/2019 — 10/2019)</p>
+        <div>
+          <h2>Education</h2>
+          <div class="item">
+            <p><strong>VNUHCM – University of Information Technology (UIT)</strong></p>
+            <p>Major: Communications & Computer Networks · 09/2017 — 05/2022 · GPA: 7.6/10</p>
+            <p><strong>CCNA</strong> — Certified Network Security Center (06/2019 — 10/2019)</p>
+          </div>
         </div>
-      </div>
-      <div>
-        <h2>Education</h2>
-        <div class="item tight">
-          <p><strong>VNUHCM – University of Information Technology (UIT)</strong></p>
-          <p>Major: Communications & Computer Networks · 09/2017 — 05/2022 · GPA: 7.6/10</p>
-        </div>
+      </section>
 
-        <h2>Career Highlights</h2>
-        <div class="item">
-          <ul>
-            <li>Automated releases with GitLab CI/CD, standardized versioning and quality gates (SAST).</li>
-            <li>Centralized observability with ELK/OTel, significantly reducing MTTR for production incidents.</li>
-            <li>Modular, repeatable infrastructure with Terraform; safer, reviewable changes.</li>
-            <li>Operational tuning for EKS/Kafka/Redis/ActiveMQ in Java microservice ecosystems.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      Updated: <script>document.write(new Date().toLocaleDateString('en-GB'))</script>. — This HTML is print‑friendly (Ctrl/Cmd + P).
-    </footer>
+      <footer>
+        Updated: <script>document.write(new Date().toLocaleDateString('en-GB'))</script>. — Print with Ctrl/Cmd + P (A4 friendly).
+      </footer>
+    </div>
   </main>
 </body>
 </html>
